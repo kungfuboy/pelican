@@ -1,0 +1,99 @@
+@import './color.less';
+
+.tree {
+  width: 100%;
+  padding: 30px 10px;
+  color: @themeColor;
+  font-size: 1.2rem;
+  overflow: auto;
+  height: 100%;
+  ul {
+    li {
+      list-style: none;
+      span {
+        display: flex;
+        height: 3rem;
+        align-items: center;
+        border-radius: 2.5px;
+        &.active {
+          color: #fff;
+          background: linear-gradient(to right bottom, @themeColor, #005caf);
+        }
+      }
+      > span {
+        // border: 1px solid rgba(0, 0, 0, 0);
+        position: relative;
+        cursor: pointer;
+        overflow: hidden;
+        &:before {
+          content: '';
+          display: block;
+          width: 18px;
+          height: 100%;
+          margin-right: 5px;
+        }
+        &:hover {
+          color: #fff;
+          &:after {
+            position: absolute;
+            content: '';
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            background: @themeColor;
+            z-index: -10;
+          }
+        }
+      }
+      > ul {
+        height: 3rem;
+        overflow: hidden;
+        // padding-left: 1.5rem;
+        &.expand {
+          height: auto;
+          transition: all 0.3s ease;
+          > span:before {
+            margin-right: 5px;
+            transform: rotate(0deg);
+            transition: all 0.3s ease;
+          }
+        }
+        &.active {
+          > span {
+            color: #fff;
+            background: @themeColor;
+          }
+        }
+        > span {
+          cursor: pointer;
+          user-select: none;
+          position: relative;
+          // transition: all 0.5s ease;
+          border-radius: 2.5px;
+          &.active {
+            color: #fff;
+            background: linear-gradient(to right bottom, @themeColor, #005caf);
+          }
+          &:hover {
+            background: @themeColor;
+            color: #fff;
+          }
+          &:before {
+            content: '';
+            display: block;
+            width: 18px;
+            height: 100%;
+            margin-right: 5px;
+            background-image: url('/static/icon/arrow_right.svg');
+            background-repeat: no-repeat;
+            background-size: 0.7rem 0.7rem;
+            background-position: center center;
+            transform: rotate(-90deg);
+            transition: all 0.3s ease;
+          }
+        }
+      }
+    }
+  }
+}

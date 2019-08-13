@@ -1,0 +1,17 @@
+#icon-menu {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  > svg {
+    transform: rotate(0deg);
+    .path {
+      fill: #fff;
+      transition: all 0.4s;
+    }
+  }
+  &.active {
+    > svg {
+      transform: rotate(-90deg);
+    }
+  }
+}

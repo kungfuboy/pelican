@@ -1,0 +1,105 @@
+@import './reset.less';
+@import './color.less';
+
+.app {
+  border: 1px solid @themeColor;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  header {
+    background: @themeColor;
+    color: @btnTextColor;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+  }
+  .nav-menu {
+    position: fixed;
+    height: 60px;
+    z-index: 15;
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 400px;
+    .icon {
+      width: 40px;
+      height: 40px;
+      padding: 5px;
+      border-radius: 40px;
+      cursor: pointer;
+      box-shadow: 0 0 10px rgba(255, 255, 255, 0);
+      &:hover {
+        box-shadow: 0 0 10px rgba(255, 255, 255, 0.4);
+      }
+      &.active {
+        box-shadow: 0 0 15px rgba(255, 255, 255, 0.7);
+      }
+    }
+  }
+  section.content {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    aside {
+      position: fixed;
+      left: 20px;
+      top: 80px;
+      bottom: 20px;
+      background: rgba(255, 255, 255, 0.9);
+      z-index: 5;
+      width: 400px;
+      flex: 1;
+      display: inline-flex;
+      flex-direction: column;
+      box-sizing: border-box;
+      box-shadow: 0 0 10px @themeColorDeepShadow;
+      transition: all 0.5s ease;
+      transform: translateX(-110%);
+      &.active {
+        transition: all 0.5s ease;
+        transform: translateX(0);
+      }
+      &.tree {
+        nav {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          padding: 0 10px;
+          width: 100%;
+        }
+      }
+      &.code {
+        width: 95vw;
+        padding: 20px;
+        overflow: auto;
+        pre {
+          line-height: 1.4em;
+          font-size: 15px;
+        }
+        h3 {
+          align-self: center;
+          margin-top: 20vh;
+          color: #cbb;
+          font-size: 30px;
+          font-weight: normal;
+        }
+      }
+      img.add-file {
+        cursor: pointer;
+        transition: 0.3s ease all;
+        transform: rotate(0deg);
+        &.disable {
+          opacity: 0.5;
+          transform: rotate(90deg);
+        }
+      }
+    }
+  }
+}
+
+.shadow {
+  display: inline-flex;
+  box-shadow: 0 0 10px @themeColorDeepShadow;
+}
